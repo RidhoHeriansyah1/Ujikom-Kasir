@@ -18,8 +18,8 @@ class DiskonController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'minimal' => 'required|min:5',
-            'persen' => 'required|min:1|max:100',
+            'minimal' => 'required|min:6',
+            'persen' => 'required|min:1|max:3',
         ]);
 
         $diskon = new $this->diskon;
@@ -32,8 +32,8 @@ class DiskonController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'minimal' => 'required|min:5',
-            'persen' => 'required|min:1|max:100',
+            'minimal' => 'required|min:6',
+            'persen' => 'required|min:1|max:3',
         ]);
 
         $diskon = $this->diskon->findOrFail($id);

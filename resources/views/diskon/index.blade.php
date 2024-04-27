@@ -33,7 +33,7 @@
                                     <td>{{ $dt->persen }}</td>
                                     <td>
                                         <div class="d-flex gap-1 ">
-                                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit{{ $dt->id }}">
+                                            <button type="button" class="btn btn-warning btn-sm text-white" data-bs-toggle="modal" data-bs-target="#edit{{ $dt->id }}">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </button>
                                             @if (auth()->user()->role_id == 1)
