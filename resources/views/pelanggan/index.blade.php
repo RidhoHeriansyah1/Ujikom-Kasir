@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="card-body">
-            
+
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -20,7 +20,9 @@
                             <th>Nama Pelanggan</th>
                             <th>Alamat</th>
                             <th>Nomor Telepon</th>
+                            @if(auth()->user()->role_id == 1)
                             <th>Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -31,18 +33,18 @@
                             <td>{{ $dt->nama_pelanggan }}</td>
                             <td>{{ $dt->alamat }}</td>
                             <td>{{ $dt->nomor_telepon }}</td>
+                            @if(auth()->user()->role_id == 1)
                             <td>
                                 <div class="d-flex gap-1 ">
                                     <a href="{{ route('pelanggan.edit', $dt->pelanggan_id) }}" class="btn btn-sm btn-warning text-white"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                    @if(auth()->user()->role_id == 1)
                                     <form action="{{ route('pelanggan.destroy', $dt->pelanggan_id) }}" method="POST" onsubmit="return confirm('Hapus?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger "><i class="fa fa-trash" aria-hidden="true"></i></button>
                                     </form>
-                                    @endif
                                 </div>
                             </td>
+                            @endif
                         </tr>
                     @endforeach
                         @else

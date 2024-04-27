@@ -37,10 +37,10 @@
                                                 data-bs-target="#tambahStok{{ $dt->produk_id }}">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                             </button>
+                                            @if (auth()->user()->role_id == 1)
                                             <a href="{{ route('produk.edit', $dt->produk_id) }}"
                                                 class="btn btn-sm btn-warning text-white"><i class="fa fa-pencil-square"
                                                     aria-hidden="true"></i></a>
-                                            @if (auth()->user()->role_id == 1)
                                                 <form action="{{ route('produk.destroy', $dt->produk_id) }}" method="POST"
                                                     onsubmit="return confirm('Hapus?')">
                                                     @csrf

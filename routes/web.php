@@ -38,9 +38,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
     Route::get('/create-produk', [ProdukController::class, 'create'])->name('produk.create');
     Route::post('/create-produk', [ProdukController::class, 'store'])->name('produk.store');
-    Route::get('/produk/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
-    Route::put('/produk/{id}', [ProdukController::class, 'update'])->name('produk.update');
-    Route::delete('/produk/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+    Route::get('/produk/{id}', [ProdukController::class, 'edit'])->name('produk.edit')->middleware('admin');
+    Route::put('/produk/{id}', [ProdukController::class, 'update'])->name('produk.update')->middleware('admin');
+    Route::delete('/produk/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy')->middleware('admin');
 });
 
 
@@ -53,9 +53,9 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan.index');
 Route::get('/create-pelanggan', [PelangganController::class, 'create'])->name('pelanggan.create');
 Route::post('/create-pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
-Route::get('/pelanggan/{id}', [PelangganController::class, 'edit'])->name('pelanggan.edit');
-Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pelanggan.update');
-Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('pelanggan.destroy');
+Route::get('/pelanggan/{id}', [PelangganController::class, 'edit'])->name('pelanggan.edit')->middleware('admin');
+Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pelanggan.update')->middleware('admin');
+Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('pelanggan.destroy')->middleware('admin');
 });
 
 
